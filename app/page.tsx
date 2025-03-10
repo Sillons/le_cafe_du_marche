@@ -76,8 +76,8 @@ export default function Home() {
               <Image 
                 src="/logo.png" 
                 alt="Le Café du Marché" 
-                width={80} 
-                height={80} 
+                width={50} 
+                height={50} 
                 className="mr-2"
               />
             </div>
