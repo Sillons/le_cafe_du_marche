@@ -76,11 +76,10 @@ export default function Home() {
               <Image 
                 src="/logo.png" 
                 alt="Le Café du Marché" 
-                width={50} 
-                height={50} 
+                width={80} 
+                height={80} 
                 className="mr-2"
               />
-              <span style={{ color: colors.blue }} className="text-xl font-bold">Le Café du Marché</span>
             </div>
             
             {/* Mobile menu button */}
@@ -172,7 +171,7 @@ export default function Home() {
             <div className="md:w-1/2">
               <div 
                 className="rounded-lg overflow-hidden shadow-xl"
-                style={{ border: `2px solid ${colors.burgundy}` }}
+                style={{ border: `0px solid ${colors.burgundy}` }}
               >
                 <Image 
                   src="/facade.png" 
