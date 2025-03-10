@@ -264,8 +264,8 @@ export default function Home() {
                 style={{ border: `2px solid ${colors.burgundy}` }}
               >
                 <Image 
-                  src="/interieur.png" 
-                  alt="Intérieur du restaurant" 
+                  src="/NotreHistoire.png" 
+                  alt="Les deux associés" 
                   width={800} 
                   height={600} 
                   className="w-full h-auto object-cover h-64 md:h-96"
@@ -336,7 +336,7 @@ export default function Home() {
                 </p>
                 <p>
                   <strong>Téléphone:</strong><br />
-                  02 XX XX XX XX
+                  02 40 47 63 50
                 </p>
                 <p>
                   <strong>Email:</strong><br />
