@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 
@@ -51,7 +51,6 @@ export default function MenuEditor() {
     cream: '#f5f0da',
     burgundy: '#650500',
     blue: '#0032a0',
-    text: '#000000', // Added text color
   };
 
   useEffect(() => {
@@ -71,7 +70,7 @@ export default function MenuEditor() {
     fetchMenu();
   }, []);
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Very simple password check - in production, use a proper authentication system
     if (password === process.env.NEXT_PUBLIC_MENU_PASSWORD || password === 'cafe123') {
@@ -82,14 +81,14 @@ export default function MenuEditor() {
     }
   };
 
-  const handleDateChange = (e) => {
+  const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     setMenuData({
       ...menuData,
       date: e.target.value
     });
   };
 
-  const handleCategoryChange = (index, value) => {
+  const handleCategoryChange = (index: number, value: string) => {
     const updatedMenuItems = [...menuData.menuItems];
     updatedMenuItems[index].category = value;
     setMenuData({
@@ -98,7 +97,7 @@ export default function MenuEditor() {
     });
   };
 
-  const handleMenuItemChange = (categoryIndex, itemIndex, field, value) => {
+  const handleMenuItemChange = (categoryIndex: number, itemIndex: number, field: keyof MenuItem, value: string) => {
     const updatedMenuItems = [...menuData.menuItems];
     updatedMenuItems[categoryIndex].items[itemIndex][field] = value;
     setMenuData({
@@ -107,7 +106,7 @@ export default function MenuEditor() {
     });
   };
 
-  const addMenuItem = (categoryIndex) => {
+  const addMenuItem = (categoryIndex: number) => {
     const updatedMenuItems = [...menuData.menuItems];
     updatedMenuItems[categoryIndex].items.push({ name: '', description: '', price: '' });
     setMenuData({
@@ -116,7 +115,7 @@ export default function MenuEditor() {
     });
   };
 
-  const removeMenuItem = (categoryIndex, itemIndex) => {
+  const removeMenuItem = (categoryIndex: number, itemIndex: number) => {
     const updatedMenuItems = [...menuData.menuItems];
     updatedMenuItems[categoryIndex].items.splice(itemIndex, 1);
     setMenuData({
@@ -138,7 +137,7 @@ export default function MenuEditor() {
     });
   };
 
-  const removeCategory = (categoryIndex) => {
+  const removeCategory = (categoryIndex: number) => {
     if (menuData.menuItems.length <= 1) {
       setMessage('Il faut au moins une catégorie dans le menu');
       setMessageType('error');
@@ -153,7 +152,7 @@ export default function MenuEditor() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     
@@ -176,7 +175,7 @@ export default function MenuEditor() {
         setMessage(`Erreur: ${error.message}`);
         setMessageType('error');
       }
-    } catch (err) {
+    } catch (err: any) {
       setMessage(`Erreur: ${err.message}`);
       setMessageType('error');
     } finally {
@@ -232,7 +231,7 @@ export default function MenuEditor() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border rounded"
-                style={{ borderColor: colors.burgundy, color: colors.text }}
+                style={{ borderColor: colors.burgundy }}
                 required
               />
             </div>
@@ -297,7 +296,7 @@ export default function MenuEditor() {
               value={menuData.date}
               onChange={handleDateChange}
               className="w-full md:w-64 p-2 border rounded"
-              style={{ borderColor: colors.burgundy, color: colors.text }}
+              style={{ borderColor: colors.burgundy }}
             />
             <p className="mt-2 text-sm" style={{ color: colors.burgundy }}>
               Ce menu sera affiché comme: <strong>{formattedDate}</strong>
@@ -327,7 +326,7 @@ export default function MenuEditor() {
                         value={category.category}
                         onChange={(e) => handleCategoryChange(categoryIndex, e.target.value)}
                         className="w-full md:w-64 p-2 border rounded"
-                        style={{ borderColor: colors.burgundy, color: colors.text }}
+                        style={{ borderColor: colors.burgundy }}
                       />
                     </div>
                     
@@ -366,7 +365,7 @@ export default function MenuEditor() {
                               value={item.name}
                               onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'name', e.target.value)}
                               className="w-full p-2 border rounded"
-                              style={{ borderColor: colors.burgundy, color: colors.text }}
+                              style={{ borderColor: colors.burgundy }}
                             />
                           </div>
                           
@@ -384,7 +383,7 @@ export default function MenuEditor() {
                               value={item.description}
                               onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'description', e.target.value)}
                               className="w-full p-2 border rounded"
-                              style={{ borderColor: colors.burgundy, color: colors.text }}
+                              style={{ borderColor: colors.burgundy }}
                             />
                           </div>
                           
@@ -403,7 +402,7 @@ export default function MenuEditor() {
                                 value={item.price}
                                 onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'price', e.target.value)}
                                 className="w-full p-2 border rounded"
-                                style={{ borderColor: colors.burgundy, color: colors.text }}
+                                style={{ borderColor: colors.burgundy }}
                                 placeholder="12€"
                               />
                               
