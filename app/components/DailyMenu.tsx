@@ -68,12 +68,6 @@ export default function DailyMenu({ colors }: { colors: { cream: string; burgund
   return (
     <div>
       <div className="mb-6 text-center">
-        <h3 
-          className="text-2xl font-bold mb-2"
-          style={{ color: colors.burgundy }}
-        >
-          Menu du Jour
-        </h3>
         <p className="text-lg" style={{ color: colors.burgundy }}>
           {formattedDate}
         </p>
