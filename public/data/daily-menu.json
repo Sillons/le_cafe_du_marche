@@ -1,29 +1,70 @@
 {
-    "date": "2025-03-11",
-    "menuItems": [
-      {
-        "category": "Entrées",
-        "items": [
-          { "name": "Corentin Je vais te manger tout cru", "description": "Aux châtaignes et huile de truffe", "price": "9€" },
-          { "name": "Tartare de Saumon", "description": "Avocat et agrumes", "price": "11€" },
-          { "name": "Salade de Chèvre Chaud", "description": "Miel et noix", "price": "10€" }
-        ]
-      },
-      {
-        "category": "Plats",
-        "items": [
-          { "name": "Magret de Canard", "description": "Sauce au miel et romarin, pommes grenailles", "price": "22€" },
-          { "name": "Filet de Dorade", "description": "Risotto aux asperges et crème citronnée", "price": "24€" },
-          { "name": "Parmentier d'Agneau", "description": "Aux herbes fraîches, salade verte", "price": "19€" }
-        ]
-      },
-      {
-        "category": "Desserts",
-        "items": [
-          { "name": "Crème Brûlée", "description": "À la vanille de Madagascar", "price": "8€" },
-          { "name": "Moelleux au Chocolat", "description": "Cœur coulant, glace vanille", "price": "9€" },
-          { "name": "Tarte aux Pommes", "description": "Maison, servie tiède avec crème fraîche", "price": "8€" }
-        ]
-      }
-    ]
-  }
+  "date": "2025-03-11",
+  "menuItems": [
+    {
+      "category": "Entrées",
+      "items": [
+        {
+          "name": "Corentin Je vais te manger tout cru",
+          "description": "Aux châtaignes et huile de truffe",
+          "price": "9€"
+        },
+        {
+          "name": "Tartare de Saumon",
+          "description": "Avocat et agrumes",
+          "price": "11€"
+        },
+        {
+          "name": "Salade de Chèvre Chaud",
+          "description": "Miel et noix",
+          "price": "10€"
+        },
+        {
+          "name": "Du cake aux olives",
+          "description": "Anne Sophie",
+          "price": "1500$"
+        }
+      ]
+    },
+    {
+      "category": "Plats",
+      "items": [
+        {
+          "name": "Magret de Canard",
+          "description": "Sauce au miel et romarin, pommes grenailles",
+          "price": "22€"
+        },
+        {
+          "name": "Filet de Dorade",
+          "description": "Risotto aux asperges et crème citronnée",
+          "price": "24€"
+        },
+        {
+          "name": "Parmentier d'Agneau",
+          "description": "Aux herbes fraîches, salade verte",
+          "price": "19€"
+        }
+      ]
+    },
+    {
+      "category": "Desserts",
+      "items": [
+        {
+          "name": "Crème Brûlée",
+          "description": "À la vanille de Madagascar",
+          "price": "8€"
+        },
+        {
+          "name": "Moelleux au Chocolat",
+          "description": "Cœur coulant, glace vanille",
+          "price": "9€"
+        },
+        {
+          "name": "Tarte aux Pommes",
+          "description": "Maison, servie tiède avec crème fraîche",
+          "price": "8€"
+        }
+      ]
+    }
+  ]
+}
