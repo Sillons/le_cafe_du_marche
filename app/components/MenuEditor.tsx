@@ -51,6 +51,7 @@ export default function MenuEditor() {
     cream: '#f5f0da',
     burgundy: '#650500',
     blue: '#0032a0',
+    text: '#000000', // Added text color
   };
 
   useEffect(() => {
@@ -231,7 +232,7 @@ export default function MenuEditor() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full p-2 border rounded"
-                style={{ borderColor: colors.burgundy }}
+                style={{ borderColor: colors.burgundy, color: colors.text }}
                 required
               />
             </div>
@@ -296,7 +297,7 @@ export default function MenuEditor() {
               value={menuData.date}
               onChange={handleDateChange}
               className="w-full md:w-64 p-2 border rounded"
-              style={{ borderColor: colors.burgundy }}
+              style={{ borderColor: colors.burgundy, color: colors.text }}
             />
             <p className="mt-2 text-sm" style={{ color: colors.burgundy }}>
               Ce menu sera affiché comme: <strong>{formattedDate}</strong>
@@ -326,7 +327,7 @@ export default function MenuEditor() {
                         value={category.category}
                         onChange={(e) => handleCategoryChange(categoryIndex, e.target.value)}
                         className="w-full md:w-64 p-2 border rounded"
-                        style={{ borderColor: colors.burgundy }}
+                        style={{ borderColor: colors.burgundy, color: colors.text }}
                       />
                     </div>
                     
@@ -365,7 +366,7 @@ export default function MenuEditor() {
                               value={item.name}
                               onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'name', e.target.value)}
                               className="w-full p-2 border rounded"
-                              style={{ borderColor: colors.burgundy }}
+                              style={{ borderColor: colors.burgundy, color: colors.text }}
                             />
                           </div>
                           
@@ -383,7 +384,7 @@ export default function MenuEditor() {
                               value={item.description}
                               onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'description', e.target.value)}
                               className="w-full p-2 border rounded"
-                              style={{ borderColor: colors.burgundy }}
+                              style={{ borderColor: colors.burgundy, color: colors.text }}
                             />
                           </div>
                           
@@ -402,7 +403,7 @@ export default function MenuEditor() {
                                 value={item.price}
                                 onChange={(e) => handleMenuItemChange(categoryIndex, itemIndex, 'price', e.target.value)}
                                 className="w-full p-2 border rounded"
-                                style={{ borderColor: colors.burgundy }}
+                                style={{ borderColor: colors.burgundy, color: colors.text }}
                                 placeholder="12€"
                               />
                               
