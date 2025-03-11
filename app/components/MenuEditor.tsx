@@ -70,10 +70,9 @@ export default function MenuEditor() {
     fetchMenu();
   }, []);
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Very simple password check - in production, use a proper authentication system
-    // This is just for demonstration
     if (password === process.env.NEXT_PUBLIC_MENU_PASSWORD || password === 'cafe123') {
       setIsAuthenticated(true);
     } else {
