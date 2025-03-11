@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import DailyMenu from './components/DailyMenu';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
@@ -15,8 +16,8 @@ export default function Home() {
     blue: '#0032a0', // Text blue
   };
 
-  // Sample menu items - replace with actual menu
-  const menuItems = [
+  // Static menu items for the regular menu card
+  const staticMenuItems = [
     {
       category: 'Entrées',
       items: [
@@ -95,7 +96,7 @@ export default function Home() {
             
             {/* Desktop navigation */}
             <div className="hidden md:flex space-x-8">
-              {['home', 'menu', 'about', 'contact'].map((item) => (
+              {['home', 'daily-menu', 'menu', 'about', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollTo(item)}
@@ -106,6 +107,7 @@ export default function Home() {
                   }}
                 >
                   {item === 'home' ? 'Accueil' : 
+                   item === 'daily-menu' ? 'Menu du Jour' :
                    item === 'menu' ? 'Notre Carte' : 
                    item === 'about' ? 'À Propos' : 'Contact'}
                 </button>
@@ -116,7 +118,7 @@ export default function Home() {
           {/* Mobile navigation */}
           {isMenuOpen && (
             <div className="md:hidden py-4" style={{ backgroundColor: colors.cream }}>
-              {['home', 'menu', 'about', 'contact'].map((item) => (
+              {['home', 'daily-menu', 'menu', 'about', 'contact'].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollTo(item)}
@@ -127,6 +129,7 @@ export default function Home() {
                   }}
                 >
                   {item === 'home' ? 'Accueil' : 
+                   item === 'daily-menu' ? 'Menu du Jour' :
                    item === 'menu' ? 'Notre Carte' : 
                    item === 'about' ? 'À Propos' : 'Contact'}
                 </button>
@@ -157,7 +160,7 @@ export default function Home() {
                 Une cuisine authentique au cœur de Nantes, avec des produits frais du marché.
               </p>
               <button 
-                onClick={() => scrollTo('menu')}
+                onClick={() => scrollTo('daily-menu')}
                 className="px-6 py-3 rounded transition-colors duration-300"
                 style={{ 
                   backgroundColor: colors.burgundy, 
@@ -165,7 +168,7 @@ export default function Home() {
                   border: `2px solid ${colors.burgundy}`
                 }}
               >
-                Découvrir notre carte
+                Découvrir le menu du jour
               </button>
             </div>
             <div className="md:w-1/2">
@@ -186,6 +189,20 @@ export default function Home() {
         </div>
       </section>
       
+      {/* Daily Menu Section */}
+      <section id="daily-menu" className="py-16" style={{ backgroundColor: 'white' }}>
+        <div className="container mx-auto px-4">
+          <h2 
+            className="text-3xl md:text-4xl font-bold mb-8 text-center"
+            style={{ color: colors.blue }}
+          >
+            Menu du Jour
+          </h2>
+          
+          <DailyMenu colors={colors} />
+        </div>
+      </section>
+      
       {/* Menu Section */}
       <section id="menu" className="py-16" style={{ backgroundColor: colors.cream }}>
         <div className="container mx-auto px-4">
@@ -197,7 +214,7 @@ export default function Home() {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {menuItems.map((category, index) => (
+            {staticMenuItems.map((category, index) => (
               <div 
                 key={index} 
                 className="rounded-lg overflow-hidden shadow-lg p-6"
